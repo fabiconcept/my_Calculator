@@ -1,0 +1,213 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.calculator{
+    max-width: 30.5rem;
+    position: absolute;
+    z-index: 5;
+    height: fit-content;
+}
+
+.app{
+    display: grid;
+    position: relative;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+.history{
+    max-width: 24rem;
+    margin: 0 auto;
+    max-height: 8rem;
+    height: 8rem;
+    font-size: .85rem;
+    color: #fff;
+    /* background-color: aqua; */
+    margin-top: -2rem;
+    border: 1px solid;
+    margin-bottom: 1rem;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    border-radius: .3rem;
+}
+
+.history li{
+    list-style-type: none;
+    height: fit-content;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    align-items: center;
+    scroll-snap-align: start;
+    /* scroll-snap-stop: ; */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    justify-content: space-between;
+}
+
+.history li:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.history li span:first-child{
+    opacity: .7;
+}
+.history li span:last-child{
+    cursor: pointer;
+}
+.history li span:last-child:active{
+    color: rgb(164, 201, 255);
+}
+.history li:last-child{
+    cursor: pointer;
+}
+.history::-webkit-scrollbar{
+    display: none;
+}
+
+.form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inText{
+    font-size: 3rem;
+    width: 24rem;
+    border-radius: .4rem;
+    color: #fff;
+    padding: .5rem;
+    background-color: transparent;
+    border: 1px solid rgb(0, 102, 255);
+}
+.holder{
+    position: absolute;
+    right: 5rem;
+    margin-top: .2rem;
+    font-size: 1.3rem;
+    color: rgb(0, 102, 255);
+    display: flex;
+    gap: 10px;
+}
+
+.btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 24rem;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+.nomBtn{
+    font-size: 1.55rem;
+    border: 1px solid rgb(0, 102, 255);
+    padding: .7rem .5rem;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+.noNeed{
+    color: #fff;
+    position: absolute;
+    font-size: 5rem;
+    opacity: .1;
+    z-index: 1;
+    text-align: center;
+}
+.noNeed span{
+    display: flex;
+    gap: 20px;
+    animation: move 3s ease-in-out infinite;
+}
+.noNeed span p:first-child div:first-child{
+    animation: hiddenMin1 1s ease-in-out infinite;
+}
+.noNeed span p:first-child div:last-child{
+    animation: hidden2Min2 1s ease-in-out infinite;
+}
+.noNeed span p:last-child div:first-child{
+    animation: hiddeMin1 1s ease-in-out infinite;
+}
+.noNeed span p:last-child div:last-child{
+    animation: hiddenMin2 1s ease-in-out infinite;
+}
+.noNeed span p:first-child{
+    color: #5f5f5f;
+    display: flex;
+    animation: hidden2 2s ease-in-out infinite;
+    margin-left: 10px;
+}
+.noNeed span p:last-child{
+    display: flex;
+    margin-left: -10px;
+    animation: hidden 2s ease-in-out infinite;
+    color: #5f5f5f;
+}
+
+
+@media screen and (max-width: 650px) {
+    .history{
+        max-width: 92vw;
+        height: 8rem;
+        margin-top: 1rem;
+    }
+    .inText{
+        width: 92vw;
+    }
+    .calculator{
+        max-width: 40.5rem;
+        height: fit-content;
+    }
+    .btns{
+        max-width: 92vw;
+    }
+    .noNeed{
+        font-size: 2.5rem;
+        opacity: .5;
+        top: 12rem;
+    }
+}
+
+@keyframes hidden {
+    25%{
+        transform: skewY(10deg);
+    }
+    75%{
+        transform: skewY(-10deg);
+    }
+}
+@keyframes hidden2 {
+    25%{
+        transform: skewY(-10deg);
+    }
+    75%{
+        transform: skewY(10deg);
+    }
+}
+@keyframes hiddenMin1 {
+    25%{
+        transform: skewY(5deg);
+    }
+    75%{
+        transform: skewY(-5deg);
+    }
+}
+@keyframes hiddenin2 {
+    25%{
+        transform: skewY(-5deg);
+    }
+    75%{
+        transform: skewY(5deg);
+    }
+}
+
+@keyframes move {
+    50%{
+        transform: translateY(5rem);
+    }
+}
