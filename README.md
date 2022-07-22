@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-View Calculator: https://62d985b50f695c0b818e4d2a--warm-pie-b94710.netlify.app/
+View Calculator: https://incredible-douhua-e48486.netlify.app/
 
 ## Available Scripts
 
