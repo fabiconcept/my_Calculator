@@ -11,7 +11,11 @@ const App = () => {
   const [secondNum, setSecondNum] = useState('');
   const [operator, setOperator] = useState('');
   const [prev, setPrev] = useState([]);
+  const [test, setTest] = useState([]);
   const [show, setShow]= useState(true)
+
+  let proceed = false;
+
 
   useEffect(() => {
     setInputText('0');
@@ -19,20 +23,49 @@ const App = () => {
 
     if (winHeight <=667) {
       setShow(false)
+      const div = document.getElementById("app");
+      scrollToBottom(div);
     }
-  }, [])
+    getFromLocal()
+    proceed = true;
+  }, []);
+
+  useEffect(()=>{
+    saveToLocal()
+  }, [prev])
 
   useEffect(()=>{
     const div = document.getElementById("history");
     scrollToBottom(div);
-  }, [prev])
+  }, [prev]);
+
 
   const scrollToBottom = (div)=>{
     div.scrollTop = div.scrollHeight;
   }
 
+  const saveToLocal = () =>{
+    const localStore = localStorage;
+    const data  = localStore.getItem("cal_history");
+    setTimeout(() => {
+      setTest(localStore.setItem("cal_history", JSON.stringify(prev)));
+    }, 200);
+  }
+
+  const getFromLocal = () =>{
+    const localStore = localStorage;
+    const data  = localStore.getItem("cal_history");
+    if(data === null){
+      localStore.setItem("cal_history", JSON.stringify([]));
+    }else{
+      const res = JSON.parse(data);
+      setPrev(res);
+    }
+  }
+  
+
   return (
-    <div className="app bg-dark">
+    <div className="app bg-dark" id='app'>
       <NoNeed />
       <div className="calculator">
         <History 

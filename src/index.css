@@ -6,7 +6,7 @@
 }
 
 .calculator{
-    max-width: 30.5rem;
+    max-width: 24rem;
     position: absolute;
     z-index: 5;
     height: fit-content;
@@ -20,6 +20,7 @@
     width: 100vw;
     overflow-x: hidden;
 }
+
 .history{
     max-width: 24rem;
     margin: 0 auto;
@@ -29,12 +30,32 @@
     color: #fff;
     /* background-color: aqua; */
     margin-top: -2rem;
-    border: 1px solid;
-    margin-bottom: 1rem;
+    border: 1px solid rgb(255, 217, 0);
+    margin-bottom: .5rem;
     overflow: auto;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     border-radius: .3rem;
+}
+.main-history{
+    width: 24rem;
+    flex-direction: column;
+    position: relative;
+}
+.main-history .del{
+    position: absolute;
+    text-align: center;
+    top: -10%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 0, 55);
+    left: 0;
+    color: #fff;
 }
 
 .history li{
@@ -99,25 +120,30 @@
 .btns{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    max-width: 24rem;
     margin-bottom: 10px;
     gap: 10px;
 }
 .nomBtn{
     font-size: 1.55rem;
     border: 1px solid rgb(0, 102, 255);
-    padding: .7rem .5rem;
+    padding: .2rem .3rem;
     border-radius: .25rem;
     cursor: pointer;
 }
-
-.noNeed{
-    color: #fff;
-    position: absolute;
-    font-size: 5rem;
-    opacity: .1;
-    z-index: 1;
+.preload{
+    height: 110vh;
+    transition: .5s ease;
+    width: 100vw;
+    z-index: 3000;
+    top: -10%;
+    background-color: #fff;
+    position: fixed;
+    font-size: 2rem;
     text-align: center;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
 }
 .noNeed span{
     display: flex;
@@ -125,28 +151,28 @@
     animation: move 3s ease-in-out infinite;
 }
 .noNeed span p:first-child div:first-child{
-    animation: hiddenMin1 1s ease-in-out infinite;
+    animation: hiddenMin1 .5s ease-in-out infinite;
 }
 .noNeed span p:first-child div:last-child{
-    animation: hidden2Min2 1s ease-in-out infinite;
+    animation: hidden2Min2 .5s ease-in-out infinite;
 }
 .noNeed span p:last-child div:first-child{
-    animation: hiddeMin1 1s ease-in-out infinite;
+    animation: hiddeMin1 .5s ease-in-out infinite;
 }
 .noNeed span p:last-child div:last-child{
-    animation: hiddenMin2 1s ease-in-out infinite;
+    animation: hiddenMin2 .5s ease-in-out infinite;
 }
 .noNeed span p:first-child{
-    color: #5f5f5f;
+    color: #000;
     display: flex;
-    animation: hidden2 2s ease-in-out infinite;
+    animation: hidden2 1s ease-in-out infinite;
     margin-left: 10px;
 }
 .noNeed span p:last-child{
     display: flex;
     margin-left: -10px;
-    animation: hidden 2s ease-in-out infinite;
-    color: #5f5f5f;
+    animation: hidden 1s ease-in-out infinite;
+    color: #000;
 }
 
 
@@ -154,22 +180,51 @@
     .history{
         max-width: 92vw;
         height: 8rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
+    }
+    .main-history{
+        max-width: 92vw;
+        margin: 0 auto;
     }
     .inText{
         width: 92vw;
     }
     .calculator{
         max-width: 40.5rem;
+        margin-bottom: 2rem;
         height: fit-content;
     }
     .btns{
         max-width: 92vw;
     }
     .noNeed{
-        font-size: 2.5rem;
-        opacity: .5;
-        top: 12rem;
+        font-size: 1.55rem;
+        top: 11rem;
+    }
+    .preload{
+        top: -20%;
+        height: 125%;
+    }
+}
+
+@media screen and (max-height: 667px) {
+    .history{
+        max-width: 92vw;
+        height: 8rem;
+        margin-top: 5rem;
+    }
+    .nomBtn{
+        font-size: 1.5rem;
+        border: 1px solid rgb(0, 102, 255);
+        padding: .2rem .3rem;
+        border-radius: .25rem;
+        cursor: pointer;
+    }    
+    .t-2{
+        font-size: 2.2rem;
+    }
+    .t-1{
+        font-size: 1.55rem;
     }
 }
 

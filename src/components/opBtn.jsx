@@ -40,7 +40,7 @@ const OpBtn = ({ firstNum, setFirstNum, secondNum, setSecondNum, setInputText, i
         if (inputText > 0) {
             if (firstNum > 0) {
                 submitBtn()
-            } else if (firstNum <= 0) {
+            }else if (firstNum <= 0) {
                 setFirstNum(inputText);
                 setOperator('÷');
                 setInputText('')
@@ -54,7 +54,7 @@ const OpBtn = ({ firstNum, setFirstNum, secondNum, setSecondNum, setInputText, i
             setPrev([
                 ...prev, {
                     id: (Math.random()+ Math.random() + Math.random()).toFixed(3),
-                    operation: `Square Root of ${inputText.toFixed(2)}`,
+                    operation: `Square Root of ${(parseFloat(inputText)).toFixed(2)}`,
                     result: eq
                 }
             ]);
@@ -78,11 +78,11 @@ const OpBtn = ({ firstNum, setFirstNum, secondNum, setSecondNum, setInputText, i
 
     const btnLog = () => {
         if (inputText > 0) {
-            let eq = Math.log(inputText);
+            let eq = parseFloat(Math.log(inputText)).toFixed(5);
             setPrev([
                 ...prev, {
                     id: (Math.random()+ Math.random() + Math.random()).toFixed(3),
-                    operation: `Log of ${inputText.toFixed(2)}`,
+                    operation: `Log of ${(parseFloat(inputText)).toFixed(2)}`,
                     result: eq
                 }
             ]);
@@ -98,7 +98,7 @@ const OpBtn = ({ firstNum, setFirstNum, secondNum, setSecondNum, setInputText, i
                 result: (Math.PI).toFixed(5)
             }
         ]);
-        setInputText((Math.PI).toFixed(5))
+        setInputText((Math.PI).toFixed(8))
     }
 
     const btnToPower = () => {
